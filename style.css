@@ -1,0 +1,159 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+  background: linear-gradient(to right, #333, #555); /* Couleur de fond de l'en-tête */
+    color: #fff;
+    padding: 1rem 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Marge intérieure */
+}
+
+.logo img {
+   height: 50px; /* Ajuste la taille du logo */
+
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav li {
+    margin-left: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("hero-image.jpg"); /* Add gradient and image */
+  background-size: cover;          /* Ensure the image covers the entire section */
+  background-position: center;     /* Center the image */
+  background-repeat: no-repeat;     /* Prevent image repetition */
+  text-align: center;
+  padding: 4rem 2rem;
+  color: white; /* Make text white for readability on the dark background */
+}
+
+#hero h1, #hero p {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add a text shadow for better contrast */
+}
+
+.button {
+  /* Style pour les boutons, à adapter */
+  background: linear-gradient(to bottom, #007bff, #0056b3); /* Couleur du bouton */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block; /* Pour que le bouton ne prenne pas toute la largeur */
+}
+
+.button:hover {
+  background: linear-gradient(to bottom, #0056b3, #003366); /* Couleur au survol */
+}
+
+.solutions-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colonnes responsives */
+    gap: 20px; /* Espacement entre les éléments */
+    padding: 2rem;
+    max-width: 1200px; /* Largeur maximale du contenu */
+    margin: 0 auto;
+
+}
+.solution {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to bottom, #f0f8ff, #e6e6fa);
+}
+
+.solution img {
+  height: 50px;
+  margin-bottom: 1rem;
+}
+
+#avantages {
+  padding: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f9f9f9; /* Couleur de fond légère */
+}
+
+#avantages ul{
+  list-style: none; /* Enlève les puces par défaut */
+  padding: 0;
+}
+#avantages li{
+  margin-bottom: 10px;
+}
+
+.icon-check {
+    color: green; /* Couleur de l'icône */
+    margin-right: 8px; /* Espacement entre l'icône et le texte */
+}
+#contact{
+  padding: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form input, form textarea {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+footer{
+  text-align: center;
+  padding: 1rem;
+  background-color: #333;
+  color:white;
+}
+
+/* Media query pour les petits écrans (exemple) */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Menu vertical sur mobile */
+        align-items: center; /* Centrer les éléments */
+
+    }
+    nav li{
+      margin: 10px 0;
+    }
+}
+
+#solutions h2 {
+  text-align: center;
+}

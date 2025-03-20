@@ -1,93 +1,148 @@
 body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
 }
 
 header {
-  background: linear-gradient(to right, #333, #555); /* Couleur de fond de l'en-tête */
-    color: #fff;
-    padding: 1rem 0;
+  background: linear-gradient(to right, #333, #555);
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.section-title {
+  text-align: center;
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px; /* Marge intérieure */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .logo img {
-   height: 50px; /* Ajuste la taille du logo */
-
+  height: 50px;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column; /* Default to column for small screens */
+  align-items: flex-start;
+  position: fixed; /* Make it fixed for overlay menu */
+  top: 80px;  /* Adjust based on your header height */
+  right: -100%; /* Start off-screen */
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9); /* Dark semi-transparent background */
+  transition: transform 0.3s ease-in-out; /* Smooth transition */
+  z-index: 1000; /* Ensure it's above other elements */
 }
 
-nav li {
-    margin-left: 20px;
+.nav-links.active {
+  right: 0; /* Slide in when active class is added */
 }
 
-nav a {
-    color: #fff;
-    text-decoration: none;
+
+.nav-links li {
+  margin: 1rem 0;
+  margin-left: 20px; /* Add left margin for the links */
 }
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.hamburger {
+  display: block; /* Show on small screens */
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  position: absolute; /* Position absolutely within the nav */
+  top: 10px;
+  right: 20px;
+  z-index: 1001; /* Ensure it's above the nav links */
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 5px 0;
+  transition: transform 0.4s ease-in-out, opacity 0.2s ease-in-out;
+  display: block;
+}
+
 
 #hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("hero-image.jpg"); /* Add gradient and image */
-  background-size: cover;          /* Ensure the image covers the entire section */
-  background-position: center;     /* Center the image */
-  background-repeat: no-repeat;     /* Prevent image repetition */
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("hero-image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   text-align: center;
   padding: 4rem 2rem;
-  color: white; /* Make text white for readability on the dark background */
+  color: white;
 }
 
-#hero h1, #hero p {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add a text shadow for better contrast */
+#hero h1,
+#hero p {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .button {
-  /* Style pour les boutons, à adapter */
-  background: linear-gradient(to bottom, #007bff, #0056b3); /* Couleur du bouton */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block; /* Pour que le bouton ne prenne pas toute la largeur */
+  background: linear-gradient(to bottom, #007bff, #0056b3);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .button:hover {
-  background: linear-gradient(to bottom, #0056b3, #003366); /* Couleur au survol */
+  background: linear-gradient(to bottom, #0056b3, #003366);
 }
 
-.solutions-grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colonnes responsives */
-    gap: 20px; /* Espacement entre les éléments */
-    padding: 2rem;
-    max-width: 1200px; /* Largeur maximale du contenu */
-    margin: 0 auto;
-
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
+
 .solution {
-    border: 1px solid #ddd;
-    padding: 1rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: linear-gradient(to bottom, #f0f8ff, #e6e6fa);
+  border: 1px solid #ddd;
+  padding: 1rem;
+  text-align: center;
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to bottom, #f0f8ff, #e6e6fa);
 }
 
 .solution img {
@@ -99,61 +154,102 @@ nav a {
   padding: 3rem;
   max-width: 1200px;
   margin: 0 auto;
-  background-color: #f9f9f9; /* Couleur de fond légère */
+  background-color: #f9f9f9;
 }
 
-#avantages ul{
-  list-style: none; /* Enlève les puces par défaut */
+#avantages ul {
+  list-style: none;
   padding: 0;
 }
-#avantages li{
+
+#avantages li {
   margin-bottom: 10px;
 }
 
 .icon-check {
-    color: green; /* Couleur de l'icône */
-    margin-right: 8px; /* Espacement entre l'icône et le texte */
+  color: green;
+  margin-right: 8px;
 }
-#contact{
+
+#contact {
   padding: 3rem;
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
-
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-form input, form textarea {
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+form input,
+form textarea {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
-footer{
+
+footer {
   text-align: center;
   padding: 1rem;
   background-color: #333;
-  color:white;
+  color: white;
 }
 
-/* Media query pour les petits écrans (exemple) */
+/* Media query for small screens */
 @media (max-width: 768px) {
-    nav ul {
-        flex-direction: column; /* Menu vertical sur mobile */
-        align-items: center; /* Centrer les éléments */
+  nav {
+      flex-direction: column;
+      align-items: flex-start; /* Align items to the start on small screens */
+  }
 
-    }
-    nav li{
-      margin: 10px 0;
-    }
+  .nav-links {
+      display: none; /* Hide the nav links by default on small screens */
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 80px; /* Adjust this value based on your header height */
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.9);
+      z-index: 10;
+  }
+
+  .nav-links.active {
+      display: flex; /* Show the nav links when the active class is applied */
+  }
+
+  .nav-links li {
+      margin: 1rem 0;
+  }
+
+  .hamburger {
+      display: block; /* Show the hamburger menu on small screens */
+  }
+   .logo {
+      margin-bottom: 1rem; /* Add some margin below the logo on small screens */
+  }
 }
 
-#solutions h2 {
-  text-align: center;
+/* Medium screens and up */
+@media (min-width: 769px) {
+.nav-links {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      position: static;
+      width: auto;
+      height: auto;
+      background-color: transparent;
+  }
+.nav-links li{
+  margin-left: 20px;
+}
+.hamburger{
+  display: none;
+}
 }

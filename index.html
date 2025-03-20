@@ -4,18 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat-BTP - L'IA au service du Bâtiment et des Travaux Publics</title>
-    <link rel="stylesheet" href="style.css">  </head>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
     <header>
         <nav>
             <div class="logo">
-                <img src="logo_chat_btp.png" alt="Logo Chat-BTP">  </div>
-            <ul>
+                <img src="logo_chat_btp.png" alt="Logo Chat-BTP">
+            </div>
+            <ul class="nav-links">
                 <li><a href="#">Accueil</a></li>
                 <li><a href="#solutions">Solutions</a></li>
                 <li><a href="#avantages">Avantages</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+             <button class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </nav>
     </header>
 
@@ -26,22 +33,26 @@
     </section>
 
     <section id="solutions">
-        <h2>Nos Solutions IA pour le BTP</h2>
+        <h2 class="section-title">Nos Solutions IA pour le BTP</h2>
         <div class="solutions-grid">
             <div class="solution">
-                <img src="icone_chatbot.png" alt="Icône Chatbot">  <h3>Chatbot d'Assistance Chantier</h3>
+                <img src="icone_chatbot.png" alt="Icône Chatbot">
+                <h3>Chatbot d'Assistance Chantier</h3>
                 <p>Un assistant virtuel disponible 24/7 pour répondre aux questions de vos équipes, gérer les imprévus et faciliter la communication.</p>
             </div>
             <div class="solution">
-                <img src="icone_analyse.png" alt="Icône Analyse">  <h3>Analyse Prédictive des Risques</h3>
+                <img src="icone_analyse.png" alt="Icône Analyse">
+                <h3>Analyse Prédictive des Risques</h3>
                 <p>Anticipez les retards, les accidents et les dépassements de budget grâce à nos algorithmes d'analyse prédictive.</p>
             </div>
             <div class="solution">
-                <img src="icone_optimisation.png" alt="Icône Optimisation"> <h3>Optimisation de la Planification</h3>
+                <img src="icone_optimisation.png" alt="Icône Optimisation">
+                <h3>Optimisation de la Planification</h3>
                 <p>Planifiez vos projets de manière optimale, en tenant compte de toutes les contraintes et en maximisant l'utilisation de vos ressources.</p>
             </div>
             <div class="solution">
-                <img src="icone_conformite.png" alt="Icône Conformité">  <h3>Suivi de Conformité Automatisé</h3>
+                <img src="icone_conformite.png" alt="Icône Conformité">
+                <h3>Suivi de Conformité Automatisé</h3>
                 <p>Assurez-vous que vos chantiers respectent les normes et réglementations en vigueur grâce à un suivi automatisé et des alertes en temps réel.</p>
             </div>
 
@@ -73,5 +84,21 @@
     <footer>
         <p>&copy; 2024 Chat-BTP. Tous droits réservés.</p>
     </footer>
+    <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(item => {
+        item.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navLinks.classList.remove("active");
+        });
+    });
+</script>
 </body>
 </html>
